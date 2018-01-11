@@ -1,5 +1,5 @@
 <?php
-class Compare()
+class Compare
 {
     public function equal($x, $y)
     {
