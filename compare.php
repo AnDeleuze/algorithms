@@ -1,4 +1,5 @@
 <?php
+
 class Compare
 {
     public function equal($x, $y)
@@ -30,6 +31,29 @@ class Compare
         } else {
             return false;
         }
+    }
+
+    /**
+     * bouble sort
+     * @param array
+     */
+    public function sortArray(array $nums)
+    {
+        $results = [];
+        $c       = count($nums);
+        $data    = new Data();
+
+        for ($i = 0; $i < $c; $i++) {
+            for ($j = $c - 1; $j > $i; $j--) {
+                if ($this->theBigger($nums[$j], $nums[$j - 1]) === $nums[$j - 1]) {
+                    $t = $nums[$j];
+                    $nums[$j] = $nums[$j - 1];
+                    $nums[$j - 1] = $t;
+                }
+            }
+        }
+
+        return $nums;
     }
 }
 ?>
