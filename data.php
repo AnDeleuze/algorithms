@@ -50,4 +50,14 @@ class Data
         $nums = $results;
         return $nums;
     }
+
+    public function reverse(array $nums)
+    {
+        $results = [];
+        $c = count($nums);
+        for ($i = 0; $i < $c; $i++) {
+            $results[] = $this->pop($nums);
+        }
+        return $results;
+    }
 }
