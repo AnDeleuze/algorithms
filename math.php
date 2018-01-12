@@ -41,7 +41,7 @@ Class Math
         $rs = [];
         for ($i = 1; $i < $n; $i++) {
             if ($this->isPrimeNumber($i)) {
-                $rs[] = $i;;
+                $rs[] = $i;
             }
         }
 
