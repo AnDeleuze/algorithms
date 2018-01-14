@@ -47,4 +47,25 @@ Class Math
 
         return $rs;
     }
+
+    public function beki(array $nums)
+    {
+        $results = [];
+        $bits    = [];
+        $count   = count($nums);
+
+        for ($j = 0; $j < pow(2, $count); $j++) {
+            $_rs = [];
+            $f = $j;
+            for ($i = 0; $i < $count; $i++) {
+                if ($f % 2 === 1) {
+                    $_rs[] = $nums[$i];
+                }
+                $f = $f / 2;
+            }
+            $results[] = $_rs;
+        }
+
+        return $results;
+    }
 }
