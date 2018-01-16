@@ -37,11 +37,10 @@ class Compare
      * bouble sort
      * @param array
      */
-    public function sortArray(array $nums)
+    public function boubleSort(array $nums)
     {
-        $results = [];
-        $c       = count($nums);
-        $data    = new Data();
+        $c    = count($nums);
+        $data = new Data();
 
         for ($i = 0; $i < $c; $i++) {
             for ($j = $c - 1; $j > $i; $j--) {
@@ -54,6 +53,32 @@ class Compare
         }
 
         return $nums;
+    }
+
+    public function quickSort(array &$nums, $b, $a = 0)
+    {
+        if ($b <= $a) { return $nums; }
+        $pivot = $nums[$a];
+        $left  = [];
+        $right = [];
+
+        for ($low = $a, $top = $b; $low < $top;) {
+            while ($low <= $top && $nums[$low] <= $pivot) { $low++; }
+            while ($low <= $top && $nums[$top] > $pivot) { $top--; }
+
+            if ($low < $top) {
+                $temp = $nums[$low];
+                $nums[$low] = $nums[$top];
+                $nums[$top] = $temp;
+            }
+        }
+
+        $temp = $nums[$a];
+        $nums[$a] = $nums[$top];
+        $nums[$top] = $temp;
+
+        $this->quickSort($nums, $top - 1, $a);
+        $this->quickSort($nums, $b, $top + 1);
     }
 }
 ?>
