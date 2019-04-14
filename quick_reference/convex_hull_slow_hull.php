@@ -85,9 +85,29 @@ class Operator {
         return false;
     }
 }
+class Metric {
+    private $time_start;
 
+    public function __construct()
+    {
+        $this->time_start = microtime(true);
+    }
 
-$p = new Field(10);
+    public function show() {
+        $time = microtime(true) - $this->time_start;
+        $memory = memory_get_usage() / 1000; //KB
+
+        echo "Time: {$time}sec<br>Memory: {$memory}Kbites";
+    }
+
+    public function __destruct()
+    {
+        $this->show();
+    }
+}
+
+$m = new Metric();
+$p = new Field(20);
 $insides = $p->show_hull();
 ?>
 
