@@ -102,6 +102,7 @@ $insides = $p->show_hull();
     width: 600px;
     position: relative;
     margin: 20px auto;
+    padding: 10px;
     border: 1px solid #000;
 }
 .dot {
